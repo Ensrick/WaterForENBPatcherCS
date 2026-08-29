@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "ensrick/**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore WaterForENBPatcherCS.sln
+
+      - name: Build
+        run: dotnet build WaterForENBPatcherCS.sln --configuration Release --no-restore --warnaserror
+
+      - name: Self-test
+        run: dotnet WaterForENBPatcherCS/bin/Release/net9.0/WaterForENBPatcherCS.dll --self-test
+
+      - name: Audit dependencies
+        run: dotnet list WaterForENBPatcherCS/WaterForENBPatcherCS.csproj package --vulnerable --include-transitive

@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
-    <ImplicitUsings>true</ImplicitUsings>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <!-- Noggog 4.3.0 emits an AssemblyVersions helper also embedded in
+         Mutagen.Synthesis 0.36.6. The compiler selects the local generated
+         helper deterministically; suppress only that dependency warning. -->
+    <NoWarn>$(NoWarn);CS0436</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mutagen.Bethesda.Skyrim" Version="0.39.5" />
-    <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.24.1" />
+    <PackageReference Include="Mutagen.Bethesda.Skyrim" Version="0.54.4" />
+    <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.36.6" />
   </ItemGroup>
 </Project>

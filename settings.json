@@ -1,0 +1,16 @@
+{
+  "WaterForEnbModName": "Water for ENB (Shades of Skyrim).esp",
+  "WaterFamilyPlugins": [
+    "Water for ENB - Patch - Beyond Reach.esp",
+    "Water for ENB - Patch - Beyond Skyrim.esp",
+    "Water for ENB - Patch - Wyrmstooth.esp",
+    "WENB Shades USSEP.esp"
+  ],
+  "ModsToSkip": [
+    "DynDOLOD.esm",
+    "Occlusion.esp",
+    "Synthesis.esp",
+    "Requiem for the Indifferent.esp",
+    "Bashed Patch, 0.esp"
+  ]
+}

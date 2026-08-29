@@ -1,14 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace WaterForENBPatcherCS.Settings;
 
-namespace WaterForENBPatcherCS.Settings {
-    class Settings {
-        public bool ignoreIdenticalToWinningOverride { get; set; } = false;
-        public String WaterForEnbModName { get; set; } = "Water for ENB (Shades of Skyrim).esp";
-        public String ModsToSkip { get; set; } = "DynDOLOD.esm;Occlusion.esp;Synthesis.esp;Requiem for the Indifferent.esp;Bashed patch, 0.esp";
+internal sealed class Settings
+{
+    public string WaterForEnbModName { get; set; } = "Water for ENB (Shades of Skyrim).esp";
 
-    }
+    public List<string> WaterFamilyPlugins { get; set; } =
+    [
+        "Water for ENB - Patch - Beyond Reach.esp",
+        "Water for ENB - Patch - Beyond Skyrim.esp",
+        "Water for ENB - Patch - Wyrmstooth.esp",
+        "WENB Shades USSEP.esp",
+    ];
+
+    public List<string> ModsToSkip { get; set; } =
+    [
+        "DynDOLOD.esm",
+        "Occlusion.esp",
+        "Synthesis.esp",
+        "Requiem for the Indifferent.esp",
+        "Bashed Patch, 0.esp",
+    ];
 }
